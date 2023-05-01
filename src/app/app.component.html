@@ -1,0 +1,31 @@
+<!-- 
+<div >
+  <p ngNonBindable>{{ dateVal | date: 'shortTime' }}</p> 
+ <p>{{ todayDate | date: 'shortTime' }}</p>
+
+ <p ngNonBindable>{{ dateVal | date:'fullDate' }}</p>
+ <p>{{ todayDate | date: 'fullDate' | lowercase }}</p>
+
+ <p ngNonBindable>{{ dateVal | date: 'd/M/y' }}</p>
+ <p>{{ todayDate | date: 'd/M/y'  }}</p>
+</div> -->
+
+<div class="container">
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <input type="text" class="form-control" [(ngModel)]="filteredString" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div *ngFor="let user of users | search: filteredString" class="my-3">
+
+        <div>Name: {{ user.name | shorten: 3 }}</div>
+        <!-- <div>Name: {{ user.name}}</div> -->
+        <div>
+          Joined Date: {{ user.joinedDate | date: "fullDate" | lowercase }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
